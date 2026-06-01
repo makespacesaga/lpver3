@@ -367,6 +367,44 @@ const TweakRadioCustom = ({ value, onChange, options }) => (
 Object.assign(window, { useTweaks, TweaksPanel, TweakSection, TweakRow, TweakRadio, TweakSelect, TweakRadioCustom });
   </script>
 
+  <!-- summer-banner -->
+  <script type="text/babel">
+const SummerBanner = () => {
+  const [days, setDays] = React.useState(0);
+  const [hours, setHours] = React.useState(0);
+  React.useEffect(() => {
+    const target = new Date('2026-07-20T00:00:00');
+    const calc = () => {
+      const diff = target - new Date();
+      if (diff <= 0) return;
+      setDays(Math.floor(diff / 86400000));
+      setHours(Math.floor((diff % 86400000) / 3600000));
+    };
+    calc();
+    const id = setInterval(calc, 60000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div style={{
+      background: 'linear-gradient(90deg, #0369a1 0%, #0891b2 50%, #0e7490 100%)',
+      padding: '10px 20px', textAlign: 'center', position: 'relative', zIndex: 99,
+    }}>
+      <p style={{ margin: 0, color: 'white', fontSize: 'clamp(11px, 2.4vw, 13px)', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '6px 16px' }}>
+        <span>☀️ 夏本番（海の日 7/20）まで</span>
+        <span>
+          <strong style={{ fontSize: 'clamp(18px, 4vw, 24px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}>{days}</strong>
+          <span style={{ fontSize: 11, marginLeft: 2 }}>日</span>
+          <strong style={{ fontSize: 'clamp(14px, 3vw, 18px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, marginLeft: 8 }}>{hours}</strong>
+          <span style={{ fontSize: 11, marginLeft: 2 }}>時間</span>
+        </span>
+        <span style={{ opacity: 0.85 }}>｜ 今から始めれば、夏に間に合います</span>
+      </p>
+    </div>
+  );
+};
+window.SummerBanner = SummerBanner;
+  </script>
+
   <!-- sections-hero -->
   <script type="text/babel">
 const Nav = ({ onMenuToggle, isOpen }) => {
@@ -469,15 +507,17 @@ const Hero = () => (
             <span style={{ width: 28, height: 1, background: 'var(--accent)' }}></span>
             FOR WOMEN 30s &middot; 40s &middot; 50s
           </div>
-          <h1 className="serif" style={{ fontSize: 'clamp(28px, 4.8vw, 56px)', lineHeight: 1.4, fontWeight: 500, margin: '0 0 28px', letterSpacing: '0.01em', color: 'var(--fg)' }}>
-            痩せたい。<br/>でも、もう<wbr/>
-            <span style={{ background: 'linear-gradient(transparent 70%, var(--accent-2) 70%)', paddingInline: 2 }}>無理はしたくない</span>あなたへ。
+          <h1 className="serif" style={{ fontSize: 'clamp(28px, 4.8vw, 58px)', lineHeight: 1.35, fontWeight: 500, margin: '0 0 28px', letterSpacing: '0.01em', color: 'var(--fg)' }}>
+            去年の夏も、<br/>
+            <span style={{ background: 'linear-gradient(transparent 68%, var(--accent-2) 68%)', paddingInline: 2 }}>後悔</span>しましたか。
           </h1>
-          <p style={{ fontSize: 'clamp(15px, 1.4vw, 17px)', lineHeight: 2, color: 'var(--fg-2)', margin: '0 0 40px', maxWidth: 520, fontWeight: 400 }}>
-            <strong style={{ color: 'var(--fg)', fontWeight: 600 }}>3食バランスよく食べながら、健康的に理想の身体へ。</strong><br/>
-            佐賀市内のパーソナルジム Make＆Space は、<br/>
-            食事・運動・生活習慣を一人ひとりに合わせて整え、<br/>
-            30〜50代女性のダイエットと体型改善をサポートします。
+          <p style={{ fontSize: 'clamp(14px, 1.4vw, 16px)', lineHeight: 2.1, color: 'var(--fg-2)', margin: '0 0 12px', maxWidth: 520, fontWeight: 400 }}>
+            <strong style={{ color: 'var(--fg)', fontWeight: 700, fontSize: 'clamp(15px, 1.5vw, 17px)' }}>今年こそ、変わる。それが今ここを読んでいる理由のはずです。</strong>
+          </p>
+          <p style={{ fontSize: 'clamp(13px, 1.3vw, 15px)', lineHeight: 2, color: 'var(--fg-2)', margin: '0 0 36px', maxWidth: 520, fontWeight: 400 }}>
+            今から始めれば、<strong style={{ color: 'var(--fg)' }}>海の日（7/20）まで最大7週間</strong>のトレーニングが受けられます。<br/>
+            3食しっかり食べながら、無理せず、確実に身体が変わります。<br/>
+            佐賀の30〜50代女性専門パーソナルジム Make＆Space。
           </p>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
             <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" className="btn" style={{ background: '#06C755', color: 'white', fontSize: 15, padding: '18px 28px', fontWeight: 600 }}>
@@ -509,11 +549,11 @@ const Hero = () => (
           <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: 'var(--bg-2)' }}>
             <img src="https://saga-ms.com/wp-content/uploads/2019/07/training-13.jpg" alt="Make&amp;Space トレーニング風景" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
-          <div style={{ position: 'absolute', top: -14, right: -14, background: 'var(--bg-card)', color: 'var(--fg)', padding: '16px 14px', fontSize: 11, letterSpacing: '0.24em', writingMode: 'vertical-rl', textOrientation: 'mixed', border: '1px solid var(--line)', fontWeight: 500 }}>無理しない美しい変化</div>
-          <div className="hero-card" style={{ position: 'absolute', bottom: -28, left: -28, background: 'var(--bg-card)', padding: '24px 28px', boxShadow: 'var(--shadow)', maxWidth: 280, borderTop: '2px solid var(--accent)' }}>
-            <div className="latin" style={{ fontSize: 10, letterSpacing: '0.4em', color: 'var(--accent)', marginBottom: 8 }}>YOU ARE EXACTLY WHERE</div>
-            <div className="serif" style={{ fontSize: 15, lineHeight: 1.9, color: 'var(--fg)', margin: 0 }}>
-              あなたの<br/><span style={{ color: 'var(--accent)' }}>必要な場所</span>は<br/>ここにある。
+          <div style={{ position: 'absolute', top: -14, right: -14, background: 'linear-gradient(135deg,#0891b2,#0369a1)', color: 'white', padding: '16px 14px', fontSize: 11, letterSpacing: '0.24em', writingMode: 'vertical-rl', textOrientation: 'mixed', fontWeight: 700 }}>今年の夏は、違う。</div>
+          <div className="hero-card" style={{ position: 'absolute', bottom: -28, left: -28, background: 'var(--fg)', color: 'var(--bg)', padding: '24px 28px', boxShadow: 'var(--shadow)', maxWidth: 280, borderTop: '2px solid var(--accent)' }}>
+            <div className="latin" style={{ fontSize: 10, letterSpacing: '0.4em', color: 'var(--accent)', marginBottom: 8 }}>SUMMER 2026 / 7.20</div>
+            <div className="serif" style={{ fontSize: 15, lineHeight: 1.9, color: 'var(--bg)', margin: 0 }}>
+              海の日に、<br/><span style={{ color: 'var(--accent-2)' }}>自信の自分</span>で<br/>いるために。
             </div>
           </div>
         </div>
@@ -538,20 +578,20 @@ const Hero = () => (
 
 const Pain = () => {
   const pains = [
-    { num: '01', title: '年齢とともに痩せにくくなった', body: '若い頃と同じやり方では効かない。代謝の変化に合った方法が知りたい。' },
-    { num: '02', title: '食事制限がどうしても続かない', body: '我慢のダイエットは、もうしたくない。食べながら整えていきたい。' },
-    { num: '03', title: '産後から体型が戻らない', body: '骨盤まわりや姿勢、何をどうすればいいのか分からないままになっている。' },
-    { num: '04', title: 'リバウンドを繰り返してきた', body: '一時的に痩せても、戻ってしまう。今度こそ続けられる方法が欲しい。' },
-    { num: '05', title: '運動が苦手・続いた試しがない', body: '一人で頑張ろうとしてきたけれど、いつも三日坊主。誰かに伴走してほしい。' },
-    { num: '06', title: '普通のジムは人目が気になる', body: '男性の視線、フィットネス上級者の中での運動はやはり気が引ける。' },
+    { num: '01', title: '今年も、水着・薄着を諦めようとしている', body: '「どうせ無理」と自分に言い聞かせて、去年も夏を逃した。また同じになりたくない。' },
+    { num: '02', title: '去年の夏も、結局変われなかった', body: '「夏までに」と思ったのに動けなかった。今年こそ本当に動き出したい、でも何から始めれば？' },
+    { num: '03', title: '食事制限がどうしても続かない', body: '我慢のダイエットはもうしたくない。好きなものを食べながら変わる方法が知りたい。' },
+    { num: '04', title: '産後・年齢で体型が戻らない', body: '若い頃と同じやり方では効かない。今の自分に合った正しい方法を知りたい。' },
+    { num: '05', title: 'リバウンドを繰り返してきた', body: '一時的に痩せても戻る繰り返し。今度こそ「夏だけでなく、ずっと続く変化」が欲しい。' },
+    { num: '06', title: '普通のジムは人目が気になる', body: '体型を人に見られるのが恥ずかしい。プライベートな空間で、自分のペースでやりたい。' },
   ];
   return (
     <section style={{ background: 'var(--bg-2)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto 64px' }} className="reveal">
-          <span className="eyebrow">CONCERNS</span>
-          <h2 className="serif" style={{ fontSize: 'clamp(26px, 3.6vw, 40px)', margin: '24px 0 20px', lineHeight: 1.5 }}>こんなお悩み、<br/>ありませんか。</h2>
-          <p style={{ color: 'var(--fg-2)', fontSize: 14, margin: 0 }}>ひとつでも当てはまる方は、ぜひこの先をお読みください。</p>
+          <span className="eyebrow">THIS SUMMER</span>
+          <h2 className="serif" style={{ fontSize: 'clamp(26px, 3.6vw, 40px)', margin: '24px 0 20px', lineHeight: 1.5 }}>去年の夏、<br/>同じことを思いませんでしたか。</h2>
+          <p style={{ color: 'var(--fg-2)', fontSize: 14, margin: 0 }}>今年の夏は、違う結果を出しませんか。海の日まであと少し、今がラストチャンスです。</p>
         </div>
         <div className="pain-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: 'var(--line)', border: '1px solid var(--line)' }}>
           {pains.map((p, i) => (
@@ -569,9 +609,9 @@ const Pain = () => {
           <div style={{ display: 'inline-block', padding: '40px 56px', background: 'var(--bg-card)', border: '1px solid var(--line)', position: 'relative', maxWidth: '92%' }}>
             <div className="latin" style={{ position: 'absolute', top: 16, left: '50%', transform: 'translate(-50%, -50%)', background: 'var(--bg-2)', padding: '0 16px', fontSize: 11, letterSpacing: '0.4em', color: 'var(--accent)' }}>MAKE &amp; SPACE</div>
             <p className="serif" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: 'var(--fg)', lineHeight: 1.9, margin: 0, fontWeight: 500 }}>
-              その「続かない」「分からない」を、<br/>
-              <span style={{ color: 'var(--accent)' }}>3食食べながら</span>整える方法で、<br/>
-              一緒に解いていきます。
+              今年の夏こそ、<span style={{ color: 'var(--accent)' }}>自信を持って</span>迎える。<br/>
+              その第一歩を、Make＆Spaceで。<br/>
+              <span style={{ fontSize: '0.75em', color: 'var(--fg-2)', fontWeight: 400 }}>3食食べながら・無理なく・海の日までに。</span>
             </p>
           </div>
         </div>
@@ -950,12 +990,15 @@ const Campaign = () => (
         <div className="latin" style={{ display: 'inline-flex', alignItems: 'center', gap: 14, fontSize: 12, letterSpacing: '0.5em', color: 'var(--accent-2)', marginBottom: 24 }}>
           <span style={{ width: 28, height: 1, background: 'var(--accent-2)' }}></span>CAMPAIGN<span style={{ width: 28, height: 1, background: 'var(--accent-2)' }}></span>
         </div>
-        <h2 className="serif" style={{ fontSize: 'clamp(24px, 4vw, 46px)', margin: '0 0 12px', lineHeight: 1.4, fontWeight: 500 }}>
-          日本最安値クラスの<br/>パーソナルジム。
+        <h2 className="serif" style={{ fontSize: 'clamp(24px, 4vw, 48px)', margin: '0 0 12px', lineHeight: 1.35, fontWeight: 500 }}>
+          夏までに変わる、<br/>最後のタイミング。
         </h2>
-        <div style={{ display: 'inline-block', background: 'var(--accent)', color: 'white', padding: '4px 18px', fontSize: 11, letterSpacing: '0.16em', fontWeight: 700, margin: '12px 0 20px' }}>佐賀最安値クラス</div>
-        <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.5)', lineHeight: 2, margin: 0 }}>
-          月々定額だから「継続できる習慣」が作れます。まずは¥3,300の体験から。
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, margin: '12px 0 20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ background: 'var(--accent)', color: 'white', padding: '4px 16px', fontSize: 11, letterSpacing: '0.16em', fontWeight: 700 }}>佐賀最安値クラス</span>
+          <span style={{ background: 'rgba(255,255,255,0.12)', color: 'white', padding: '4px 16px', fontSize: 11, letterSpacing: '0.1em' }}>海の日（7/20）まで 今から最大7週間</span>
+        </div>
+        <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.55)', lineHeight: 2, margin: 0 }}>
+          月額¥15,400・佐賀最安値クラスで、夏までの7週間を本気で変わる。<br/>まずは¥3,300の体験から。入会は一切強制しません。
         </p>
       </div>
 
@@ -1129,15 +1172,17 @@ const FinalCTA = () => (
         BOOK YOUR FREE COUNSELING
         <span style={{ width: 28, height: 1, background: 'var(--accent-2)' }}></span>
       </div>
-      <h2 className="serif reveal" style={{ fontSize: 'clamp(26px, 4.4vw, 50px)', margin: '0 0 20px', lineHeight: 1.5, fontWeight: 500 }}>
-        まずは <span style={{ color: 'var(--accent-2)' }}>¥3,300</span> の体験から。<br/>入会は、あとからゆっくり決めていい。
+      <h2 className="serif reveal" style={{ fontSize: 'clamp(26px, 4.4vw, 52px)', margin: '0 0 16px', lineHeight: 1.4, fontWeight: 500 }}>
+        今年の夏は、<br/><span style={{ color: 'var(--accent-2)' }}>違う自分</span>でいる。
       </h2>
-      <p className="reveal" style={{ maxWidth: 600, margin: '0 auto 16px', fontSize: 15, lineHeight: 2, color: 'var(--bg-2)' }}>
-        無料カウンセリング（90分）＋ 体験トレーニングで、<br/>「自分に合うか」を確かめてからご判断ください。
+      <p className="reveal" style={{ maxWidth: 560, margin: '0 auto 12px', fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 2, color: 'var(--bg-2)' }}>
+        海の日（7/20）まで最大7週間。<br/>
+        ¥3,300の体験から始めて、夏に間に合わせましょう。<br/>
+        入会は体験後にゆっくり決めていただけます。
       </p>
       <div className="reveal" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 36, padding: '8px 20px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.06)' }}>
         <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
-        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.06em' }}>今月の体験枠 残り <strong style={{ color: 'white' }}>10名</strong>　|　当日の入会は一切不要</span>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.06em' }}>今月の体験枠 残り <strong style={{ color: 'white' }}>10名</strong>　|　入会は一切強制しません</span>
       </div>
       <div className="reveal cta-btns" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 40 }}>
         <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" className="btn" style={{ background: '#06C755', color: 'white', padding: '20px 36px', fontSize: 16, fontWeight: 700 }}>
@@ -1292,6 +1337,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <SummerBanner />
       <Nav onMenuToggle={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
       <Hero />
       <Pain />
