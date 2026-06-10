@@ -402,20 +402,28 @@ const SummerBanner = () => {
     return () => clearInterval(id);
   }, []);
   return (
-    <div style={{
-      background: 'linear-gradient(90deg, #0369a1 0%, #0891b2 50%, #0e7490 100%)',
-      padding: '10px 20px', textAlign: 'center', position: 'relative', zIndex: 99,
-    }}>
-      <p style={{ margin: 0, color: 'white', fontSize: 'clamp(11px, 2.4vw, 13px)', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '6px 16px' }}>
-        <span>☀️ 夏本番（海の日 7/20）まで</span>
-        <span>
-          <strong style={{ fontSize: 'clamp(18px, 4vw, 24px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}>{days}</strong>
-          <span style={{ fontSize: 11, marginLeft: 2 }}>日</span>
-          <strong style={{ fontSize: 'clamp(14px, 3vw, 18px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, marginLeft: 8 }}>{hours}</strong>
-          <span style={{ fontSize: 11, marginLeft: 2 }}>時間</span>
-        </span>
-        <span style={{ opacity: 0.85 }}>｜ 今から始めれば、夏に間に合います</span>
-      </p>
+    <div style={{ position: 'relative', zIndex: 99 }}>
+      {/* 緊急性バー（広告コピー一致） */}
+      <div style={{ background: 'linear-gradient(90deg, #92400E 0%, #B45309 50%, #D97706 100%)', padding: '8px 20px', textAlign: 'center' }}>
+        <p style={{ margin: 0, color: '#FEF3C7', fontSize: 'clamp(11px, 2.4vw, 13px)', fontWeight: 700, letterSpacing: '0.1em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 14px' }}>
+          <span>今月限定！体験枠 <strong style={{ fontSize: 'clamp(13px, 3vw, 15px)', color: 'white' }}>残り10名</strong></span>
+          <span style={{ opacity: 0.25, display: 'inline' }}>|</span>
+          <span>始めるなら今しかない</span>
+        </p>
+      </div>
+      {/* カウントダウンバー */}
+      <div style={{ background: 'linear-gradient(90deg, #0369a1 0%, #0891b2 50%, #0e7490 100%)', padding: '8px 20px', textAlign: 'center' }}>
+        <p style={{ margin: 0, color: 'white', fontSize: 'clamp(11px, 2.4vw, 13px)', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 12px' }}>
+          <span>海の日 7/20 まで</span>
+          <span>
+            <strong style={{ fontSize: 'clamp(17px, 4vw, 22px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}>{days}</strong>
+            <span style={{ fontSize: 10, marginLeft: 2 }}>日</span>
+            <strong style={{ fontSize: 'clamp(13px, 3vw, 17px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, marginLeft: 6 }}>{hours}</strong>
+            <span style={{ fontSize: 10, marginLeft: 2 }}>時間</span>
+          </span>
+          <span style={{ opacity: 0.75 }}>今から始めれば夏に間に合います</span>
+        </p>
+      </div>
     </div>
   );
 };
@@ -537,10 +545,18 @@ const Hero = () => (
             <span style={{ background: 'linear-gradient(transparent 68%, var(--accent-2) 68%)', paddingInline: 2 }}>後悔</span>しましたか。
           </h1>
 
-          <p style={{ fontSize: 'clamp(13px, 1.4vw, 15px)', lineHeight: 1.9, color: 'var(--fg-2)', margin: '0 0 24px', maxWidth: 520, fontWeight: 400 }}>
-            <strong style={{ color: 'var(--fg)', fontWeight: 700 }}>今から始めれば、海の日（7/20）まで最大7週間。</strong><br/>
-            3食食べながら・無理せず・確実に変わります。
+          <p style={{ fontSize: 'clamp(13px, 1.4vw, 15px)', lineHeight: 1.9, color: 'var(--fg-2)', margin: '0 0 16px', maxWidth: 520, fontWeight: 400 }}>
+            <strong style={{ color: 'var(--fg)', fontWeight: 700 }}>週1回・50分のマンツーマンで、確実にカラダが変わります。</strong><br/>
+            今から始めれば海の日（7/20）まで最大7週間。食事指導つき・無理なく継続。
           </p>
+          <div className="hero-features" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
+            {['完全個室', '食事指導つき', 'JR佐賀駅 徒歩3分'].map((f, i) => (
+              <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, padding: '5px 12px', border: '1px solid var(--line)', color: 'var(--fg-2)', background: 'var(--bg)', letterSpacing: '0.04em' }}>
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 6.5l3 3 7-7" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                {f}
+              </span>
+            ))}
+          </div>
 
           {/* デスクトップ: 追加説明文 */}
           <p className="hero-body-2" style={{ fontSize: 'clamp(13px, 1.3vw, 14px)', lineHeight: 2, color: 'var(--fg-2)', margin: '0 0 28px', maxWidth: 520 }}>
@@ -560,12 +576,12 @@ const Hero = () => (
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
             <span style={{ fontSize: 12, color: 'var(--fg-2)' }}>今月の体験枠 <strong style={{ color: 'var(--fg)' }}>残り10名</strong>　|　入会は一切強制しません</span>
           </div>
-          <div className="trust-strip" style={{ marginTop: 56, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, paddingTop: 28, borderTop: '1px solid var(--line)' }}>
+          <div className="trust-strip" style={{ marginTop: 40, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, paddingTop: 28, borderTop: '1px solid var(--line)' }}>
             {[
               { v: '★ 4.9', l: 'Google 238件のクチコミ' },
               { v: '¥15,400', l: '佐賀最安値クラス / 月額' },
-              { v: '完全', l: '個室・予約制' },
-              { v: '女性歓迎', l: '産後ケア対応' },
+              { v: '週1回', l: '50分マンツーマン' },
+              { v: '食事指導', l: 'つき・完全個室' },
             ].map((t, i) => (
               <div key={i}>
                 <div className="serif" style={{ fontSize: 17, fontWeight: 600, color: 'var(--fg)', lineHeight: 1.2 }}>{t.v}</div>
@@ -599,6 +615,7 @@ const Hero = () => (
           .hero-price-badge { display: none !important; }
           .hero-eyebrow-wrap { display: none !important; }
           .hero-body-2 { display: none !important; }
+          .hero-features { display: none !important; }
           /* モバイル専用ラベル表示 */
           .hero-mobile-label { display: block !important; }
           /* CTAボタンを縦積み・全幅 */
@@ -951,7 +968,7 @@ const MobileCTAStrip = () => (
       まず、¥3,300 で<br/>試してください。
     </div>
     <div style={{ fontSize: 13, color: 'rgba(250,247,241,0.55)', marginBottom: 24, lineHeight: 1.8 }}>
-      入会は体験後にゆっくり決めていただけます。<br/>今月残り10名・当日OK。
+      始めるなら今しかない。週1回・50分・食事指導つき。<br/>入会は体験後に決めていただけます。今月残り10名。
     </div>
     <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" style={{
       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -1109,7 +1126,7 @@ const Campaign = () => (
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', marginBottom: 28 }}>（税込）/ 月</div>
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
-            {['完全個室・マンツーマン指導', 'TRX専門・約1,000種類のメニュー', '無理な勧誘・ローン契約一切なし', 'JR佐賀駅 徒歩3分'].map((it, i) => (
+            {['週1回・50分のマンツーマン指導', '完全個室・食事指導つき', '無理な勧誘・ローン契約一切なし', 'JR佐賀駅 徒歩3分'].map((it, i) => (
               <li key={i} style={{ display: 'flex', gap: 10, fontSize: 13.5, color: 'rgba(255,255,255,0.9)', fontWeight: i < 3 ? 400 : 400 }}>
                 <svg width="16" height="16" viewBox="0 0 16 16" style={{ marginTop: 3, flexShrink: 0 }}><circle cx="8" cy="8" r="7" fill="rgba(196,154,108,0.25)"/><path d="M4 8.5l2.5 2.5 5.5-5.5" stroke="var(--accent)" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 {it}
@@ -1242,12 +1259,12 @@ const FinalCTA = () => (
         <span style={{ width: 28, height: 1, background: 'var(--accent-2)' }}></span>
       </div>
       <h2 className="serif reveal" style={{ fontSize: 'clamp(26px, 4.4vw, 52px)', margin: '0 0 16px', lineHeight: 1.4, fontWeight: 500 }}>
-        今年の夏は、<br/><span style={{ color: 'var(--accent-2)' }}>違う自分</span>でいる。
+        夏まで、あと少し。<br/><span style={{ color: 'var(--accent-2)' }}>今年こそ、変わる。</span>
       </h2>
       <p className="reveal" style={{ maxWidth: 560, margin: '0 auto 12px', fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 2, color: 'var(--bg-2)' }}>
         海の日（7/20）まで最大7週間。<br/>
-        ¥3,300の体験から始めて、夏に間に合わせましょう。<br/>
-        入会は体験後にゆっくり決めていただけます。
+        週1回・50分から、食事指導つきで無理なく変われます。<br/>
+        ¥3,300の体験から始めて、入会は後でゆっくり決めてください。
       </p>
       <div className="reveal" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 36, padding: '8px 20px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.06)' }}>
         <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
@@ -1345,7 +1362,7 @@ const MobileCTA = () => (
   <div className="mobile-cta">
     <div className="mobile-cta-info">
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', flexShrink: 0 }}></span>
-      <span>今月残り <strong>10名</strong> ｜ 入会強制なし ｜ 当日OK</span>
+      <span>始めるなら今しかない ｜ 残り<strong>10名</strong> ｜ 入会強制なし</span>
     </div>
     <div className="mobile-cta-btns">
       <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" className="m-line">
