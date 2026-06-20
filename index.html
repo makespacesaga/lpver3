@@ -634,12 +634,9 @@ const Hero = () => (
           .hero-cta-wrap { flex-direction: column !important; gap: 10px !important; }
           .hero-line-btn { width: 100% !important; justify-content: center !important; font-size: 17px !important; padding: 20px 24px !important; }
           .hero-counsel-btn { width: 100% !important; justify-content: center !important; font-size: 13px !important; }
-          /* 画像は小さめに */
-          .hero-visual { max-width: 100% !important; aspect-ratio: 4/3 !important; }
-          .hero-grid { gap: 28px !important; }
-        }
-        @media (max-width: 480px) {
-          .hero-card { left: 8px !important; bottom: -12px !important; padding: 14px 16px !important; max-width: 180px !important; font-size: 12px !important; }
+          /* モバイルでは画像エリアを非表示（CTAに集中・崩壊バグ防止） */
+          .hero-visual { display: none !important; }
+          .hero-grid { gap: 0 !important; }
         }
       `}</style>
     </div>
