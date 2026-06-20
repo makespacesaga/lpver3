@@ -535,9 +535,15 @@ const Hero = () => (
             FOR WOMEN 30s &middot; 40s &middot; 50s
           </div>
           {/* モバイル: 価格ラベル */}
-          <div className="hero-mobile-label" style={{ display: 'none', marginBottom: 10 }}>
-            <span style={{ background: 'var(--accent)', color: 'white', padding: '4px 12px', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', marginRight: 8 }}>日本最安値クラス</span>
-            <span style={{ fontSize: 11, color: 'var(--fg-2)' }}>月額 ¥15,400（税込）</span>
+          <div className="hero-mobile-label" style={{ display: 'none', marginBottom: 12 }}>
+            <div style={{ marginBottom: 5 }}>
+              <span style={{ background: 'var(--accent)', color: 'white', padding: '4px 12px', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', marginRight: 8 }}>日本最安値クラス</span>
+              <span style={{ fontSize: 11, color: 'var(--fg-2)' }}>月額 ¥15,400（税込）</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+              <span style={{ color: '#F59E0B', fontSize: 11 }}>★★★★★</span>
+              <span style={{ fontSize: 10, color: 'var(--fg-3)' }}>Google 4.9 / 238件　佐賀で選ばれるパーソナルジム</span>
+            </div>
           </div>
 
           <h1 className="serif" style={{ fontSize: 'clamp(28px, 4.8vw, 58px)', lineHeight: 1.35, fontWeight: 500, margin: '0 0 20px', letterSpacing: '0.01em', color: 'var(--fg)' }}>
@@ -572,9 +578,15 @@ const Hero = () => (
             </a>
             <a href="#cta" className="btn btn-ghost hero-counsel-btn" style={{ fontSize: 14 }}>無料カウンセリングを予約 <span className="arrow"></span></a>
           </div>
-          <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
-            <span style={{ fontSize: 12, color: 'var(--fg-2)' }}>今月限定 <strong style={{ color: 'var(--fg)' }}>先着10名のみ</strong>　|　入会は一切強制しません</span>
+          <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
+              <span style={{ fontSize: 12, color: 'var(--fg-2)' }}>今月限定 <strong style={{ color: 'var(--fg)' }}>先着10名のみ</strong>　|　入会は一切強制しません</span>
+            </div>
+            <div style={{ paddingLeft: 18, display: 'flex', alignItems: 'center', gap: 7 }}>
+              <span style={{ color: '#F59E0B', fontSize: 13, letterSpacing: 1 }}>★★★★★</span>
+              <span style={{ fontSize: 11, color: 'var(--fg-3)' }}>Google 4.9 / 238件　佐賀で選ばれるパーソナルジム</span>
+            </div>
           </div>
           <div className="trust-strip" style={{ marginTop: 40, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, paddingTop: 28, borderTop: '1px solid var(--line)' }}>
             {[
@@ -671,8 +683,17 @@ const Pain = () => {
               その第一歩を、Make＆Spaceで。<br/>
               <span style={{ fontSize: '0.75em', color: 'var(--fg-2)', fontWeight: 400 }}>3食食べながら・無理なく・海の日までに。</span>
             </p>
+            {/* デスクトップ: 感情ピーク直後のCTA */}
+            <div className="pain-inline-cta" style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid var(--line)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
+              <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#06C755', color: 'white', padding: '14px 32px', fontSize: 14, fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 5.582 2 10c0 2.554 1.508 4.83 3.872 6.342L5 21l4.293-2.347c.864.155 1.77.238 2.707.238 5.523 0 10-3.582 10-8s-4.477-9-10-9z"/></svg>
+                まず¥3,300で体験してみる
+              </a>
+              <span style={{ fontSize: 11, color: 'var(--fg-3)', letterSpacing: '0.06em' }}>先着10名のみ ｜ 入会強制なし ｜ 当日キャンセルOK</span>
+            </div>
           </div>
         </div>
+        <style>{`.pain-inline-cta { display: flex !important; } @media (max-width: 720px) { .pain-inline-cta { display: none !important; } }`}</style>
         <style>{`
           @media (max-width: 960px) { .pain-grid { grid-template-columns: repeat(2, 1fr) !important; } }
           @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr !important; } }
@@ -1099,7 +1120,10 @@ const Campaign = () => (
             <span className="serif" style={{ fontSize: 'clamp(42px, 9vw, 56px)', fontWeight: 700, lineHeight: 1, color: 'var(--accent-2)' }}>¥3,300</span>
             <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>（税込）</span>
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.28)', marginBottom: 28, textDecoration: 'line-through' }}>通常 ¥12,780 相当</div>
+          <div style={{ marginBottom: 20, padding: '10px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', textDecoration: 'line-through', marginBottom: 4 }}>通常来店 ¥12,780 相当</div>
+            <div style={{ fontSize: 12, color: 'rgba(250,210,160,0.9)', fontWeight: 700, letterSpacing: '0.04em' }}>コーヒー2杯分で、人生を変えるきっかけを。</div>
+          </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
             {['体組成測定・姿勢チェック', 'マンツーマントレーニング体験', '食事・栄養アドバイス', 'あなた専用プランのご提案'].map((it, i) => (
               <li key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.68)' }}>
@@ -1263,7 +1287,7 @@ const FinalCTA = () => (
       </h2>
       <p className="reveal" style={{ maxWidth: 560, margin: '0 auto 12px', fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 2, color: 'var(--bg-2)' }}>
         海の日（7/20）まで最大7週間。<br/>
-        週1回・50分から、食事指導つきで無理なく変われます。<br/>
+        完全個室・マンツーマン指導で、無理なく確実に変われます。<br/>
         ¥3,300の体験から始めて、入会は後でゆっくり決めてください。
       </p>
       <div className="reveal" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 36, padding: '8px 20px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.06)' }}>
@@ -1279,6 +1303,9 @@ const FinalCTA = () => (
           電話で問い合わせる <span className="arrow"></span>
         </a>
       </div>
+      <p className="reveal" style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', marginTop: 16, letterSpacing: '0.06em' }}>
+        強引な勧誘は一切しません。まずお話だけでも、大歓迎です。
+      </p>
       <div className="reveal cta-strip" style={{ maxWidth: 720, margin: '0 auto', padding: '24px 32px', border: '1px solid rgba(255,255,255,0.15)', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
         {[{ v: '90分', l: '無料カウンセリング' }, { v: '入会不要', l: '当日のご入会は任意' }, { v: '24時間', l: 'LINE予約受付中' }].map((t, i) => (
           <div key={i}>
@@ -1334,6 +1361,45 @@ const Footer = () => (
     </div>
   </footer>
 );
+
+const SafetyGuarantee = () => (
+  <section style={{ background: 'var(--bg-card)', padding: '96px 0', position: 'relative', overflow: 'hidden' }}>
+    <div aria-hidden style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%)' }}/>
+    <div className="container" style={{ maxWidth: 840, textAlign: 'center' }}>
+      <div className="latin reveal" style={{ fontSize: 11, letterSpacing: '0.44em', color: 'var(--accent)', marginBottom: 20 }}>OUR PROMISE</div>
+      <h2 className="serif reveal" style={{ fontSize: 'clamp(22px, 3.4vw, 38px)', lineHeight: 1.5, margin: '0 0 20px', fontWeight: 500 }}>
+        体験に来ても、<br/>強引に入会を勧めません。
+      </h2>
+      <p className="reveal" style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'var(--fg-2)', lineHeight: 2, maxWidth: 600, margin: '0 auto 52px' }}>
+        パーソナルジムへの不安No.1は「強引に勧誘されそう」という声です。<br/>
+        Make＆Spaceでは、体験当日の契約・入会を<strong style={{ color: 'var(--fg)' }}>一切強制しません。</strong><br/>
+        Googleの238件のクチコミが、その証拠です。
+      </p>
+      <div className="reveal safety-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, maxWidth: 680, margin: '0 auto 44px' }}>
+        {[
+          { title: '当日入会の強制', note: '体験後にゆっくり\nご検討ください' },
+          { title: '高額ローン契約', note: '現金・カード\nPayPayのみ対応' },
+          { title: '自動更新・縛り', note: 'いつでも\n退会できます' },
+        ].map((item, i) => (
+          <div key={i} style={{ padding: '32px 16px 24px', border: '1px solid var(--line)', background: 'var(--bg)', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: -13, left: '50%', transform: 'translateX(-50%)', background: '#DC2626', color: 'white', padding: '4px 14px', fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', whiteSpace: 'nowrap' }}>一切なし</div>
+            <div className="serif" style={{ fontSize: 15, fontWeight: 500, marginBottom: 12, lineHeight: 1.6 }}>{item.title}</div>
+            <div style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.9, whiteSpace: 'pre-line' }}>{item.note}</div>
+          </div>
+        ))}
+      </div>
+      <div className="reveal" style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '18px 32px', background: 'var(--bg-2)', border: '1px solid var(--line)' }}>
+        <span style={{ color: '#F59E0B', fontSize: 18, letterSpacing: 3 }}>★★★★★</span>
+        <div style={{ textAlign: 'left' }}>
+          <div style={{ fontSize: 13, color: 'var(--fg)', fontWeight: 600 }}>Google 4.9 / 238件のクチコミ</div>
+          <div style={{ fontSize: 11, color: 'var(--fg-3)', marginTop: 2 }}>「スタッフが親切で押し付けがない」の声多数</div>
+        </div>
+      </div>
+    </div>
+    <style>{`@media (max-width: 560px) { .safety-grid { grid-template-columns: 1fr !important; gap: 28px !important; } }`}</style>
+  </section>
+);
+window.SafetyGuarantee = SafetyGuarantee;
 
 window.Flow = Flow; window.Campaign = Campaign; window.FAQ = FAQ;
 window.Access = Access; window.FinalCTA = FinalCTA; window.Footer = Footer;
@@ -1443,6 +1509,7 @@ function App() {
       <Campaign />
       <FAQ />
       <Access />
+      <SafetyGuarantee />
       <FinalCTA />
       <Footer />
       <MobileCTA />
