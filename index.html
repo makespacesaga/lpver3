@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google tag (gtag.js) : GA4 + Google広告 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QZJC58J13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0QZJC58J13');
+  gtag('config', 'AW-605094393');
+</script>
 <title>パーソナルジム Make＆Space ｜ 佐賀市 30〜50代女性のためのダイエット・健康サポート</title>
 <meta name="description" content="無理な食事制限なし。3食バランスよく食べながら健康的に理想の身体へ。佐賀市内の女性に寄り添うパーソナルジム Make＆Space。無料カウンセリング受付中。" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -387,41 +396,14 @@ Object.assign(window, { useTweaks, TweaksPanel, TweakSection, TweakRow, TweakRad
   <!-- summer-banner -->
   <script type="text/babel">
 const SummerBanner = () => {
-  const [days, setDays] = React.useState(0);
-  const [hours, setHours] = React.useState(0);
-  React.useEffect(() => {
-    const target = new Date('2026-07-20T00:00:00');
-    const calc = () => {
-      const diff = target - new Date();
-      if (diff <= 0) return;
-      setDays(Math.floor(diff / 86400000));
-      setHours(Math.floor((diff % 86400000) / 3600000));
-    };
-    calc();
-    const id = setInterval(calc, 60000);
-    return () => clearInterval(id);
-  }, []);
   return (
     <div style={{ position: 'relative', zIndex: 99 }}>
       {/* 緊急性バー（広告コピー一致） */}
       <div style={{ background: 'linear-gradient(90deg, #92400E 0%, #B45309 50%, #D97706 100%)', padding: '8px 20px', textAlign: 'center' }}>
         <p style={{ margin: 0, color: '#FEF3C7', fontSize: 'clamp(11px, 2.4vw, 13px)', fontWeight: 700, letterSpacing: '0.1em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 14px' }}>
-          <span>今月限定！体験枠 <strong style={{ fontSize: 'clamp(13px, 3vw, 15px)', color: 'white' }}>残り10名</strong></span>
+          <span>体験トレーニング <strong style={{ fontSize: 'clamp(13px, 3vw, 15px)', color: 'white' }}>受付中</strong></span>
           <span style={{ opacity: 0.25, display: 'inline' }}>|</span>
-          <span>始めるなら今しかない</span>
-        </p>
-      </div>
-      {/* カウントダウンバー */}
-      <div style={{ background: 'linear-gradient(90deg, #0369a1 0%, #0891b2 50%, #0e7490 100%)', padding: '8px 20px', textAlign: 'center' }}>
-        <p style={{ margin: 0, color: 'white', fontSize: 'clamp(11px, 2.4vw, 13px)', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 12px' }}>
-          <span>海の日 7/20 まで</span>
-          <span>
-            <strong style={{ fontSize: 'clamp(17px, 4vw, 22px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}>{days}</strong>
-            <span style={{ fontSize: 10, marginLeft: 2 }}>日</span>
-            <strong style={{ fontSize: 'clamp(13px, 3vw, 17px)', color: '#FDE68A', fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, marginLeft: 6 }}>{hours}</strong>
-            <span style={{ fontSize: 10, marginLeft: 2 }}>時間</span>
-          </span>
-          <span style={{ opacity: 0.75 }}>今から始めれば夏に間に合います</span>
+          <span>完全予約制</span>
         </p>
       </div>
     </div>
@@ -553,7 +535,7 @@ const Hero = () => (
 
           <p style={{ fontSize: 'clamp(13px, 1.4vw, 15px)', lineHeight: 1.9, color: 'var(--fg-2)', margin: '0 0 16px', maxWidth: 520, fontWeight: 400 }}>
             <strong style={{ color: 'var(--fg)', fontWeight: 700 }}>完全個室・マンツーマン指導で、無理なく・確実に変わります。</strong><br/>
-            今から始めれば海の日（7/20）まで最大7週間。まず¥3,300の体験から。
+            まず¥3,300の体験トレーニングから始められます。入会は一切強制しません。
           </p>
           <div className="hero-features" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
             {['完全個室・マンツーマン', 'TRX専門・1,000種類', 'JR佐賀駅 徒歩3分'].map((f, i) => (
@@ -581,7 +563,7 @@ const Hero = () => (
           <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
-              <span style={{ fontSize: 12, color: 'var(--fg-2)' }}>今月限定 <strong style={{ color: 'var(--fg)' }}>先着10名のみ</strong>　|　入会は一切強制しません</span>
+              <span style={{ fontSize: 12, color: 'var(--fg-2)' }}>体験トレーニング <strong style={{ color: 'var(--fg)' }}>受付中</strong>　|　入会は一切強制しません</span>
             </div>
             <div style={{ paddingLeft: 18, display: 'flex', alignItems: 'center', gap: 7 }}>
               <span style={{ color: '#F59E0B', fontSize: 13, letterSpacing: 1 }}>★★★★★</span>
@@ -609,9 +591,9 @@ const Hero = () => (
           </div>
           <div style={{ position: 'absolute', top: -14, right: -14, background: 'linear-gradient(135deg,#0891b2,#0369a1)', color: 'white', padding: '16px 14px', fontSize: 11, letterSpacing: '0.24em', writingMode: 'vertical-rl', textOrientation: 'mixed', fontWeight: 700 }}>今年の夏は、違う。</div>
           <div className="hero-card" style={{ position: 'absolute', bottom: -28, left: -28, background: 'var(--fg)', color: 'var(--bg)', padding: '24px 28px', boxShadow: 'var(--shadow)', maxWidth: 280, borderTop: '2px solid var(--accent)' }}>
-            <div className="latin" style={{ fontSize: 10, letterSpacing: '0.4em', color: 'var(--accent)', marginBottom: 8 }}>SUMMER 2026 / 7.20</div>
+            <div className="latin" style={{ fontSize: 10, letterSpacing: '0.4em', color: 'var(--accent)', marginBottom: 8 }}>MAKE ＆ SPACE</div>
             <div className="serif" style={{ fontSize: 15, lineHeight: 1.9, color: 'var(--bg)', margin: 0 }}>
-              海の日に、<br/><span style={{ color: 'var(--accent-2)' }}>自信の自分</span>で<br/>いるために。
+              いつでも、<br/><span style={{ color: 'var(--accent-2)' }}>自信の自分</span>で<br/>いるために。
             </div>
           </div>
         </div>
@@ -658,7 +640,7 @@ const Pain = () => {
         <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto 64px' }} className="reveal">
           <span className="eyebrow">THIS SUMMER</span>
           <h2 className="serif" style={{ fontSize: 'clamp(26px, 3.6vw, 40px)', margin: '24px 0 20px', lineHeight: 1.5 }}>去年の夏、<br/>同じことを思いませんでしたか。</h2>
-          <p style={{ color: 'var(--fg-2)', fontSize: 14, margin: 0 }}>今年の夏は、違う結果を出しませんか。海の日まであと少し、今がラストチャンスです。</p>
+          <p style={{ color: 'var(--fg-2)', fontSize: 14, margin: 0 }}>今度こそ、違う結果を出しませんか。</p>
         </div>
         <div className="pain-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: 'var(--line)', border: '1px solid var(--line)' }}>
           {pains.map((p, i) => (
@@ -678,7 +660,7 @@ const Pain = () => {
             <p className="serif" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: 'var(--fg)', lineHeight: 1.9, margin: 0, fontWeight: 500 }}>
               今年の夏こそ、<span style={{ color: 'var(--accent)' }}>自信を持って</span>迎える。<br/>
               その第一歩を、Make＆Spaceで。<br/>
-              <span style={{ fontSize: '0.75em', color: 'var(--fg-2)', fontWeight: 400 }}>3食食べながら・無理なく・海の日までに。</span>
+              <span style={{ fontSize: '0.75em', color: 'var(--fg-2)', fontWeight: 400 }}>3食食べながら・無理なく。</span>
             </p>
             {/* デスクトップ: 感情ピーク直後のCTA */}
             <div className="pain-inline-cta" style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid var(--line)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
@@ -686,7 +668,7 @@ const Pain = () => {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 5.582 2 10c0 2.554 1.508 4.83 3.872 6.342L5 21l4.293-2.347c.864.155 1.77.238 2.707.238 5.523 0 10-3.582 10-8s-4.477-9-10-9z"/></svg>
                 まず¥3,300で体験してみる
               </a>
-              <span style={{ fontSize: 11, color: 'var(--fg-3)', letterSpacing: '0.06em' }}>先着10名のみ ｜ 入会強制なし ｜ 当日キャンセルOK</span>
+              <span style={{ fontSize: 11, color: 'var(--fg-3)', letterSpacing: '0.06em' }}>体験トレーニング受付中 ｜ 入会強制なし ｜ 当日キャンセルOK</span>
             </div>
           </div>
         </div>
@@ -986,7 +968,7 @@ const MobileCTAStrip = () => (
       まず、¥3,300 で<br/>試してください。
     </div>
     <div style={{ fontSize: 13, color: 'rgba(250,247,241,0.55)', marginBottom: 24, lineHeight: 1.8 }}>
-      始めるなら今しかない。完全個室・マンツーマン指導。<br/>入会は体験後に決めていただけます。今月先着10名のみ。
+      完全個室・マンツーマン指導、完全予約制。<br/>入会は体験後に決めていただけます。体験トレーニング受付中。
     </div>
     <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" style={{
       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -1072,17 +1054,9 @@ const Campaign = () => (
   <section id="campaign" style={{ background: 'var(--fg)', color: 'var(--bg)', padding: '0 0 100px', position: 'relative', overflow: 'hidden' }}>
     {/* 緊急性バナー */}
     <div style={{ background: 'linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%)', padding: '20px 24px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-      <p style={{ margin: '0 0 12px', fontSize: 'clamp(14px, 3vw, 17px)', fontWeight: 700, color: 'white', letterSpacing: '0.14em', lineHeight: 1.4 }}>
-        今月限定　<span style={{ fontSize: 'clamp(22px, 5vw, 30px)', fontWeight: 900, letterSpacing: '0.04em' }}>先着10名のみ</span>　受付中
+      <p style={{ margin: 0, fontSize: 'clamp(14px, 3vw, 17px)', fontWeight: 700, color: 'white', letterSpacing: '0.14em', lineHeight: 1.4 }}>
+        体験トレーニング　<span style={{ fontSize: 'clamp(22px, 5vw, 30px)', fontWeight: 900, letterSpacing: '0.04em' }}>受付中</span>　完全予約制
       </p>
-      <div style={{ maxWidth: 360, margin: '0 auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: 11, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.06em' }}>
-          <span>今月の受付枠</span><span>10名 / 20名 埋まっています</span>
-        </div>
-        <div style={{ height: 8, background: 'rgba(0,0,0,0.25)', borderRadius: 4, overflow: 'hidden' }}>
-          <div style={{ width: '50%', height: '100%', background: 'white', borderRadius: 4 }}></div>
-        </div>
-      </div>
     </div>
 
     <div aria-hidden style={{ position: 'absolute', top: 80, left: -80, width: 420, height: 420, borderRadius: '50%', background: 'radial-gradient(circle, var(--accent) 0%, transparent 65%)', opacity: 0.12, filter: 'blur(28px)', pointerEvents: 'none' }}/>
@@ -1099,10 +1073,9 @@ const Campaign = () => (
         </h2>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, margin: '12px 0 20px', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ background: 'var(--accent)', color: 'white', padding: '4px 16px', fontSize: 11, letterSpacing: '0.16em', fontWeight: 700 }}>日本最安値クラス</span>
-          <span style={{ background: 'rgba(255,255,255,0.12)', color: 'white', padding: '4px 16px', fontSize: 11, letterSpacing: '0.1em' }}>海の日（7/20）まで 今から最大7週間</span>
         </div>
         <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.55)', lineHeight: 2, margin: 0 }}>
-          月額¥15,400・日本最安値クラスで、夏までの7週間を本気で変わる。<br/>まずは¥3,300の体験から。入会は一切強制しません。
+          月額¥15,400・日本最安値クラスで、本気で変わる。<br/>まずは¥3,300の体験から。入会は一切強制しません。
         </p>
       </div>
 
@@ -1283,13 +1256,12 @@ const FinalCTA = () => (
         夏まで、あと少し。<br/><span style={{ color: 'var(--accent-2)' }}>今年こそ、変わる。</span>
       </h2>
       <p className="reveal" style={{ maxWidth: 560, margin: '0 auto 12px', fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 2, color: 'var(--bg-2)' }}>
-        海の日（7/20）まで最大7週間。<br/>
         完全個室・マンツーマン指導で、無理なく確実に変われます。<br/>
         ¥3,300の体験から始めて、入会は後でゆっくり決めてください。
       </p>
       <div className="reveal" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 36, padding: '8px 20px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.06)' }}>
         <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 0 3px rgba(34,197,94,0.25)' }}></span>
-        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.06em' }}>今月限定 先着 <strong style={{ color: 'white' }}>10名のみ</strong>　|　入会は一切強制しません</span>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.06em' }}>体験トレーニング <strong style={{ color: 'white' }}>受付中</strong>　|　入会は一切強制しません</span>
       </div>
       <div className="reveal cta-btns" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 40 }}>
         <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" className="btn" style={{ background: '#06C755', color: 'white', padding: '20px 36px', fontSize: 16, fontWeight: 700 }}>
@@ -1425,7 +1397,7 @@ const MobileCTA = () => (
   <div className="mobile-cta">
     <div className="mobile-cta-info">
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', flexShrink: 0 }}></span>
-      <span>始めるなら今しかない ｜ 先着<strong>10名のみ</strong> ｜ 入会強制なし</span>
+      <span>体験トレーニング ｜ <strong>受付中</strong> ｜ 入会強制なし</span>
     </div>
     <div className="mobile-cta-btns">
       <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" className="m-line">
@@ -1542,6 +1514,37 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+  <!-- コンバージョン計測: LINE / 電話。Reactが後から描画するため document への委任リスナーにする -->
+  <script>
+(function(){
+  var LABEL = { line: 'AW-605094393/ImeQCKqZk7EcEPmDxKAC', tel: '' }; // tel は管理画面で新規アクションを作成した後にラベルを入れる。空の間は送信しない
+  function loc(a){
+    if (a.closest('.sticky-cta,.sticky,.m-line,.m-trial')) return 'sticky_cta';
+    if (a.closest('.urgency-bar')) return 'urgency_bar';
+    if (a.closest('header')) return 'header';
+    if (a.closest('footer')) return 'footer';
+    var s = a.closest('section');
+    return (s && s.id) ? s.id : 'other';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target; if (!t || !t.closest) return;
+    var a = t.closest('a[href*="line.me"],a[href^="tel:"]'); if (!a) return;
+    var kind = a.getAttribute('href').indexOf('tel:') === 0 ? 'tel' : 'line';
+    var where = loc(a);
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { method: kind, cta_location: where });
+      var key = 'cv_sent_' + kind, sent = false;
+      try { sent = sessionStorage.getItem(key) === '1'; sessionStorage.setItem(key, '1'); } catch(_) {}
+      if (!sent && LABEL[kind]) gtag('event', 'conversion', { send_to: LABEL[kind] });
+    }
+    if (typeof fbq === 'function') {
+      if (kind === 'line') fbq('track', 'Contact');
+      fbq('trackCustom', kind === 'tel' ? 'TelTap' : 'LINEButtonClick', { button_location: where });
+    }
+  }, true);
+})();
   </script>
 </body>
 </html>
