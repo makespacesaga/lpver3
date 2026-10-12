@@ -1,0 +1,15 @@
+
+# ---- 秘密情報（絶対にコミットしない） ----
+.env
+.env.*
+*.env
+!.env.example
+**/tokens.json
+**/*token*.json
+client_secret*.json
+credentials*.json
+.netlify
+.vercel
+
+# 画像生成の候補（採用分は images/v3/ に縮小して置く。候補はコミットしない）
+images/gen/
