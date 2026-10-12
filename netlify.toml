@@ -10,3 +10,110 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# --- 内部ファイルを URL で開けないようにする（不正アクセス対策ツールが追加 2026-10-12）---
+[[redirects]]
+  from = "/.env"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.env.local"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.env.production"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.git/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.mcp.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.claude/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.vscode/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/AGENTS.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/deploy.py"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/token.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tokens.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/credentials.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/client_secret.json"
+  to = "/404"
+  status = 404
+  force = true
+
+# --- セキュリティヘッダ（不正アクセス対策ツールが追加 2026-10-12）---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
