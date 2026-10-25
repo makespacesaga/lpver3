@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 広告ごとの出し分け：?v=b で「運動が苦手でも、大丈夫。」版（旧広告）。指定なしは「姿勢から」版（新広告） -->
+<script>
+(function(){
+  var v = new URLSearchParams(location.search).get('v') === 'b' ? 'b' : 'a';
+  document.documentElement.setAttribute('data-v', v);
+  if (v === 'b') { var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.href = 'images/v3/room.jpg'; document.head.appendChild(l); }
+})();
+</script>
+<!-- Google tag (gtag.js) : GA4 + Google広告（v3.html と同じ） -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QZJC58J13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0QZJC58J13');
+  gtag('config', 'AW-605094393');
+</script>
+<!-- Meta ピクセル（インスタ広告の成果計測。ID は public/index.html と同じ） -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4036948373263638');
+fbq('track', 'PageView');
+</script>
+<title>姿勢から、好きな自分へ。｜ストレッチ整体×トレーニング Make＆Space（佐賀駅徒歩1分）</title>
+<meta name="description" content="佐賀駅から徒歩1分、完全個室のパーソナルジム Make＆Space。ストレッチ整体で体を整えてから、マンツーマンでトレーニング。月額15,400円（税込）、体験トレーニング3,300円。ご予約はLINEで24時間受付。">
+<link rel="preload" as="image" href="images/v4/hero-posture.jpg">
+<style>
+/* Webフォントは読み込まない（表示を待たせないため）。端末の明朝・ゴシックを使う */
+:root{
+  --bg:#F8F1E9; --white:#fff; --ink:#2A2422; --ink-2:#4A403C; --muted:#766A64;
+  --line:#E7DACD; --wine:#7A1F2E; --wine-dark:#5E1622; --wine-pale:#F4E3E3;
+  --mark:#EBCFC9; --line-green:#06C755; --line-green-dark:#05B04B;
+  --serif:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP","Noto Sans CJK JP",Meiryo,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--wine)}
+img{display:block;max-width:100%}
+h1,h2,h3,p{margin:0}
+.serif{font-family:var(--serif)}
+.nw{white-space:nowrap}
+br.sp{display:none}
+@media (max-width:640px){br.sp{display:inline}}
+.wrap{max-width:1040px;margin:0 auto;padding:60px 20px}
+.page{padding-bottom:88px}
+.bg-white{background:var(--white)}
+.bg-base{background:var(--bg)}
+.photo{position:relative;overflow:hidden;background:rgba(127,127,127,.08)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* 広告ごとの出し分け */
+.vb{display:none}
+html[data-v="b"] .va{display:none}
+html[data-v="b"] .vb{display:block}
+html[data-v="b"] span.vb{display:inline}
+
+/* 見出し */
+.sec-head{text-align:center;margin-bottom:28px}
+.eyebrow{font-size:12px;letter-spacing:.2em;color:var(--wine);font-weight:700}
+.h2{margin:6px 0 0;font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.45}
+.lead{margin:12px auto 0;max-width:640px;font-size:15px;color:var(--ink-2)}
+
+/* ボタン */
+.btn{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-decoration:none;padding:14px 20px;border-radius:999px;line-height:1.45;text-align:center}
+.btn small{font-size:12px;opacity:.92}
+.btn strong{font-size:18px;font-weight:800}
+.btn-wine{background:var(--wine);box-shadow:0 8px 20px rgba(122,31,46,.25)}
+.btn-wine:hover{background:var(--wine-dark);color:#fff}
+.btn-line{background:var(--line-green);box-shadow:0 8px 20px rgba(6,199,85,.25)}
+.btn-line:hover{background:var(--line-green-dark);color:#fff}
+.btn-ghost{background:#fff;color:var(--wine);border:1.5px solid var(--wine)}
+.btn-ghost:hover{background:var(--wine-pale);color:var(--wine-dark)}
+
+/* ヘッダー */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(248,241,233,.95);border-bottom:1px solid var(--line)}
+.hdr-in{max-width:1040px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{text-decoration:none;color:var(--ink);line-height:1.2}
+.logo b{display:block;font-family:var(--serif);font-size:20px;letter-spacing:.04em;font-weight:600}
+.logo span{font-size:11px;color:var(--muted);letter-spacing:.08em}
+.hdr-nav{display:flex;gap:18px;font-size:13px}
+.hdr-nav a{color:var(--ink);text-decoration:none}
+.hdr-cta{background:var(--line-green);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:9px 16px;border-radius:999px;white-space:nowrap}
+.hdr-cta:hover{color:#fff;background:var(--line-green-dark)}
+@media (max-width:760px){.hdr-nav{display:none}}
+
+/* ヒーロー：広告と同じ構図（左に見出し、右に写真） */
+.hero{position:relative;overflow:hidden;background:var(--bg)}
+.hero-stage{position:relative;max-width:1040px;margin:0 auto;min-height:clamp(470px,62vw,600px)}
+.hero-photo{position:absolute;top:0;right:0;bottom:0;width:60%}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.hero-photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bg) 0%,rgba(248,241,233,.8) 12%,rgba(248,241,233,0) 34%)}
+.hero-photo .img-note{position:absolute;right:8px;bottom:6px;z-index:2;font-size:10px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.hero-copy{position:relative;z-index:2;padding:26px 20px 24px;max-width:62%}
+.hero h1{margin-top:clamp(18px,5vw,36px);font-family:var(--serif);font-weight:700;color:var(--wine);font-size:clamp(38px,10.4vw,68px);line-height:1.22;letter-spacing:-.01em}
+.hero h1 .s{font-size:.8em;color:var(--ink)}
+.hero-sub{margin-top:18px;font-family:var(--serif);font-weight:700;font-size:clamp(17px,4.6vw,24px);line-height:1.4;padding-bottom:8px;border-bottom:1px solid var(--ink);width:max-content;max-width:100%}
+.hero-sub2{margin-top:8px;font-family:var(--serif);font-size:clamp(12px,3.3vw,15px);letter-spacing:.04em}
+/* 広告の下半分（料金＋ボタン）と同じ並び */
+.hero-offer{position:relative;z-index:2;background:linear-gradient(180deg,#F8F1E9 0%,#FBF7F1 100%);padding:18px 20px 26px;text-align:center}
+.hero-offer-in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.plan-label{display:flex;align-items:center;gap:14px;font-family:var(--serif);font-weight:700;font-size:16px;letter-spacing:.12em;color:var(--ink)}
+.plan-label::before,.plan-label::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.5}
+.plan-price{font-family:var(--serif);color:var(--wine);font-weight:700;line-height:1;display:flex;align-items:baseline;justify-content:center;gap:4px;flex-wrap:wrap}
+.plan-price .m{font-size:26px}
+.plan-price b{font-size:clamp(54px,15vw,80px);letter-spacing:-.02em}
+.plan-price .y{font-size:30px}
+.plan-price small{font-size:16px;color:var(--ink)}
+.hero-offer .btn{margin-top:4px}
+.hero-offer .sub-link{font-size:14px;font-weight:700;color:var(--ink-2)}
+.hero-offer .sub-link a{color:#04A548}
+.hero-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.hero-chips div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 4px;font-size:12px;font-weight:700;line-height:1.35}
+.hero-chips small{display:block;font-size:10px;font-weight:500;color:var(--muted)}
+@media (min-width:900px){
+  .hero-copy{padding:56px 40px 40px}
+  .hero-photo{width:55%}
+}
+
+/* 体験の内容と料金 */
+.trial-card{max-width:680px;margin:0 auto;background:#fff;border:2px solid var(--wine);border-radius:22px;overflow:hidden;box-shadow:0 18px 44px rgba(122,31,46,.12)}
+.trial-top{background:var(--wine);color:#fff;text-align:center;padding:14px 16px;font-weight:700;letter-spacing:.08em}
+.trial-body{padding:26px 22px;display:flex;flex-direction:column;gap:18px}
+.trial-price{text-align:center;line-height:1.2}
+.trial-price s{display:block;color:var(--muted);font-size:14px}
+.trial-price b{font-family:var(--serif);font-size:clamp(48px,12vw,64px);color:var(--wine);letter-spacing:-.01em}
+.trial-price span{font-size:20px;font-weight:700}
+.trial-price small{font-size:13px;color:var(--muted)}
+.incl{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.incl li{display:flex;gap:10px;align-items:flex-start;background:var(--bg);border-radius:10px;padding:11px 14px;font-size:15px;font-weight:500}
+.incl li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--wine);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700;margin-top:2px}
+.free-note{background:var(--wine-pale);border-radius:12px;padding:12px 14px;font-size:14px;text-align:center;color:var(--ink)}
+.free-note b{color:var(--wine)}
+.after{border-top:1px dashed var(--line);padding-top:18px;display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:baseline}
+.after .k{font-size:14px;color:var(--ink-2)}
+.after .v{font-weight:800;font-size:18px;text-align:right}
+.after .v small{font-size:12px;font-weight:500;color:var(--muted)}
+.after .full{grid-column:1/-1;font-size:12px;color:var(--muted)}
+
+/* お悩み */
+.worries{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.worry{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 16px;font-size:15px;font-weight:500}
+.check{flex:none;width:24px;height:24px;border-radius:50%;background:var(--wine);color:#fff;font-size:13px;display:grid;place-items:center;font-weight:700;margin-top:1px}
+.answer{margin-top:28px;text-align:center;background:var(--ink);color:#fff;border-radius:16px;padding:26px 20px}
+.answer p{font-family:var(--serif);font-size:clamp(18px,2.6vw,24px);font-weight:700;line-height:1.65}
+.answer em{font-style:normal;color:var(--mark)}
+
+/* 1回のセッションの流れ */
+.steps3{display:flex;flex-direction:column;gap:28px}
+.s3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:center}
+.s3 .photo{height:clamp(220px,30vw,320px);border-radius:18px}
+.s3-no{font-family:var(--serif);font-size:13px;letter-spacing:.2em;color:var(--wine);font-weight:700}
+.s3 h3{margin:4px 0 8px;font-family:var(--serif);font-size:clamp(20px,2.6vw,26px);font-weight:700;line-height:1.45}
+.s3 p{font-size:15px;color:var(--ink-2)}
+
+/* お客様の声 */
+.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.voice{background:#fff;border-radius:18px;border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:10px}
+.voice-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:700}
+.badge{font-size:12px;background:var(--wine-pale);color:var(--wine);padding:3px 10px;border-radius:999px;font-weight:700;white-space:nowrap}
+.voice-lead{font-family:var(--serif);font-size:17px;font-weight:700;line-height:1.5}
+.voice p{font-size:14px;color:var(--ink-2)}
+.fine{margin:14px 0 0;font-size:11px;color:var(--muted);text-align:center}
+
+/* 比較表 */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp{width:100%;min-width:540px;border-collapse:separate;border-spacing:0;font-size:14px;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.cmp th,.cmp td{padding:13px 10px;text-align:center;border-bottom:1px solid var(--line)}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead tr{background:var(--ink);color:#fff}
+.cmp thead th{font-weight:500;border-bottom:0}
+.cmp thead th.me{background:var(--wine);font-family:var(--serif);font-size:15px;font-weight:700}
+.cmp tbody th{font-weight:700;text-align:left}
+.cmp td.me{background:#FBF1F1;font-weight:700;color:var(--wine)}
+.cmp small{font-size:11px;font-weight:500}
+.scroll-hint{font-size:12px;color:var(--muted);text-align:right;margin:0 0 6px}
+@media (min-width:600px){.scroll-hint{display:none}}
+
+/* LINE予約の流れ */
+.line-card{max-width:620px;margin:0 auto;background:#fff;border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;gap:16px;border:1px solid var(--line)}
+.line-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.line-steps li{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border-radius:12px;padding:13px 14px;font-size:15px}
+.line-steps b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--line-green);color:#fff;display:grid;place-items:center;font-size:13px}
+.line-steps small{font-size:12px;color:var(--muted)}
+.tel-line{text-align:center;font-size:14px;color:var(--ink-2)}
+.tel-line a{font-weight:800;font-size:18px;color:var(--ink);text-decoration:none}
+
+/* FAQ */
+.faq-wrap{max-width:780px}
+.faq{display:flex;flex-direction:column;gap:10px}
+.qa{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.qa button{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:none;border:0;padding:16px 18px;font:inherit;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer}
+.qa .q{flex:none;font-family:var(--serif);color:var(--wine);font-size:18px;font-weight:700}
+.qa .t{flex:1}
+.qa .mk{flex:none;color:var(--wine);font-size:18px}
+.qa .a{display:flex;gap:12px;padding:0 18px 16px;font-size:14px;color:var(--ink-2)}
+.qa .a b{flex:none;font-family:var(--serif);color:var(--muted);font-size:18px;line-height:1.4}
+.qa .a[hidden]{display:none}
+
+/* 店舗情報 */
+.shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:stretch}
+.map{position:relative;min-height:260px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#EFE6DC}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.shop-body{display:flex;flex-direction:column;gap:12px}
+.shop-body h2{font-family:var(--serif);font-size:clamp(22px,3vw,28px);font-weight:700;line-height:1.4}
+.shop dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px}
+.shop dt{color:var(--muted)}
+.shop dd{margin:0}
+.shop dd small{font-size:12px;color:var(--muted)}
+.shop dd a{color:var(--ink);font-weight:700;text-decoration:none}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gallery figure{margin:0}
+.gallery .photo{height:90px;border-radius:10px}
+.gallery figcaption{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+
+/* 最後のひと押し */
+.final{background:var(--wine);color:#fff;text-align:center}
+.final .wrap{display:flex;flex-direction:column;gap:14px;align-items:center}
+.final h2{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.4}
+.final p{font-size:15px;opacity:.95}
+.final .btn{width:100%;max-width:420px;box-shadow:none}
+
+.ft{background:#1E1A19;color:#A69C94;font-size:12px}
+.ft-in{max-width:1040px;margin:0 auto;padding:22px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ft address{font-style:normal}
+
+/* 画面下の固定ボタン（LINE を主役に） */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(42,36,34,.96);padding:9px 12px calc(9px + env(safe-area-inset-bottom))}
+.sticky-in{max-width:640px;margin:0 auto;display:flex;gap:8px}
+.sticky .btn{padding:9px 10px;border-radius:12px;line-height:1.25;box-shadow:none}
+.sticky .btn small{font-size:10px}
+.sticky .btn strong{font-size:16px}
+.sticky .btn-line{flex:1}
+.sticky .btn-tel{flex:none;width:74px;background:#fff;color:var(--ink)}
+.sticky .btn-tel strong{font-size:14px}
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=4036948373263638&ev=PageView&noscript=1"></noscript>
+<div class="page" id="top">
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="#top" class="logo"><b>Make &amp; Space</b><span>佐賀駅から徒歩1分</span></a>
+    <nav class="hdr-nav" aria-label="ページ内リンク">
+      <a href="#trial">体験・料金</a>
+      <a href="#method">ストレッチ整体×トレーニング</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#shop">アクセス</a>
+    </nav>
+    <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" class="hdr-cta">LINEで予約</a>
+  </div>
+</header>
+
+<main>
+<!-- 1. ファーストビュー：広告の画面と同じ見出し・同じ写真・同じ料金 -->
+<section class="hero" id="hero" data-track="s01_hero">
+  <div class="hero-stage">
+    <div class="hero-photo photo">
+      <img class="va" src="images/v4/hero-posture.jpg" alt="トレーナーのサポートで腕を伸ばし、姿勢を整える女性" width="458" height="892" fetchpriority="high">
+      <img class="vb" src="images/v3/room.jpg" alt="Make＆Space の完全個室トレーニングルームとTRXゾーン" width="1000" height="1000" loading="lazy">
+      <span class="img-note va">※人物・利用場面はイメージです。</span>
+    </div>
+    <div class="hero-copy">
+      <h1 class="va">姿勢から、<br><span class="nw">好きな</span><br><span class="nw">自分へ。</span></h1>
+      <h1 class="vb">運動が<br>苦手でも、<br><span class="nw">大丈夫。</span></h1>
+      <p class="hero-sub va">ストレッチ整体<br class="sp">× トレーニング</p>
+      <p class="hero-sub vb">完全個室の<br class="sp">パーソナルジム</p>
+      <p class="hero-sub2">一人ひとりに合わせた<br class="sp">マンツーマンサポート</p>
+    </div>
+  </div>
+  <div class="hero-offer">
+    <div class="hero-offer-in">
+      <div class="plan-label">パーソナルプラン</div>
+      <div class="plan-price"><span class="m">月額</span><b>15,400</b><span class="y">円</span><small>（税込）</small></div>
+      <a href="#trial" class="btn btn-wine"><strong>体験内容・料金を見る ›</strong></a>
+      <p class="sub-link">ご予約は <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener">LINE</a> から（24時間受付）</p>
+      <div class="hero-chips">
+        <div><small>周りの目なし</small>完全個室</div>
+        <div><small>あなた専属</small>マンツーマン</div>
+        <div><small>JR佐賀駅</small>徒歩1分</div>
+        <div><small>ローンなし</small>月額制</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 広告で約束した「体験内容・料金」をすぐ見せる -->
+<section id="trial" class="bg-white" data-track="s02_trial">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">TRIAL &amp; PRICE</div>
+      <h2 class="h2">体験の内容と料金</h2>
+      <p class="lead">体験でも、ストレッチ整体とトレーニングの両方を受けられます。<br>入会は体験のあとでゆっくり決めてください。</p>
+    </div>
+    <div class="trial-card">
+      <div class="trial-top">体験トレーニング</div>
+      <div class="trial-body">
+        <div class="trial-price"><s>通常 12,780円相当</s><b>3,300</b><span>円</span><small>（税込）</small></div>
+        <ul class="incl">
+          <li>カウンセリング（お悩み・目標・生活リズム）</li>
+          <li>体組成測定・姿勢チェック</li>
+          <li>ストレッチ整体</li>
+          <li>マンツーマントレーニング体験</li>
+          <li>食事・栄養アドバイス</li>
+          <li>あなた専用プランのご提案</li>
+        </ul>
+        <p class="free-note">体験の前に、<b>話を聞くだけ（無料カウンセリング）</b>でも大丈夫です。</p>
+        <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" class="btn btn-line"><small>24時間受付・空き状況の確認だけでもOK</small><strong>LINEで体験を予約する</strong></a>
+        <div class="after">
+          <span class="k">ご入会後の月額（パーソナルプラン）</span><span class="v">15,400円 <small>税込</small></span>
+          <span class="k">入会金</span><span class="v">10,000円 <small>税込</small></span>
+          <span class="full">ローン・分割・高額コースはありません。お支払いは現金・クレジットカード・PayPay。無理な勧誘は一切いたしません。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. お悩み（姿勢・体の硬さ・運動が苦手） -->
+<section class="bg-base" data-track="s03_worry">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">CHECK</div>
+      <h2 class="h2">こんなお悩み、<br class="sp">ありませんか？</h2>
+    </div>
+    <div class="worries">
+      <div class="worry"><span class="check">✓</span><span>肩こり・腰痛・むくみが慢性化している</span></div>
+      <div class="worry"><span class="check">✓</span><span>猫背・巻き肩で、写真に写る姿が老けて見える</span></div>
+      <div class="worry"><span class="check">✓</span><span>体が硬くて、運動するとすぐ痛くなる</span></div>
+      <div class="worry"><span class="check">✓</span><span>運動が苦手で、ジムに入会しても続かなかった</span></div>
+      <div class="worry"><span class="check">✓</span><span>産後から体型や骨盤まわりが戻らない</span></div>
+      <div class="worry"><span class="check">✓</span><span>大きなジムは人の目が気になって落ち着かない</span></div>
+    </div>
+    <div class="answer">
+      <p>硬いまま鍛えても、体は変わりにくい。<br>だから Make&amp;Space は<em>「整えてから、動かす」</em>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ストレッチ整体×トレーニングとは（1回の流れ） -->
+<section id="method" class="bg-white" data-track="s04_method">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:36px">
+      <div class="eyebrow">STRETCH × TRAINING</div>
+      <h2 class="h2">ストレッチ整体 × トレーニング<br>1回のセッションの流れ</h2>
+    </div>
+    <div class="steps3">
+      <div class="s3">
+        <div class="photo"><img src="images/v3/stretch.jpg" alt="トレーナーによるストレッチ整体の様子" width="1100" height="733" loading="lazy"></div>
+        <div>
+          <div class="s3-no">STEP 01</div>
+          <h3>ストレッチ整体で、<br>まず体を整える</h3>
+          <p>猫背・巻き肩・産後の骨盤まわりなど、肩こり・腰痛・むくみの原因になりやすい部分にアプローチ。体がほぐれた状態からスタートします。</p>
+        </div>
+      </div>
+      <div class="s3">
+        <div class="photo"><img src="images/v3/trx-zone.jpg" alt="TRXのファンクショナルトレーニングゾーン" width="1000" height="1000" loading="lazy"></div>
+        <div>
+          <div class="s3-no">STEP 02</div>
+          <h3>TRXで、<br>良い姿勢を支える筋肉を育てる</h3>
+          <p>自分の体重を使うTRX（サスペンショントレーニング）は、ストラップの角度で負荷を細かく調整できるので、運動経験ゼロの方でも無理なく全身を鍛えられます。約1,000種類のメニューから、あなたに合うものを組み合わせます。</p>
+        </div>
+      </div>
+      <div class="s3">
+        <div class="photo"><img src="images/v3/meal.jpg" alt="ご飯・味噌汁・焼き魚・野菜の一汁三菜の食事" width="1100" height="733" loading="lazy"></div>
+        <div>
+          <div class="s3-no">STEP 03</div>
+          <h3>食事と生活も、<br>一緒に整える</h3>
+          <p>極端な糖質カットや置き換えダイエットはおすすめしません。1日3食をきちんと食べながら、栄養バランスを「整える」アドバイスをします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. お客様の声（姿勢改善を先頭に） -->
+<section id="voice" class="bg-base" data-track="s05_voice">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">VOICE</div>
+      <h2 class="h2">通っている方の声</h2>
+    </div>
+    <div class="voices">
+      <div class="voice">
+        <div class="voice-top"><span>40代・姿勢改善</span><span class="badge">約1ヶ月</span></div>
+        <div class="voice-lead">姿勢も筋力も、少しずつ。</div>
+        <p>「姿勢改善と筋力アップを目的に通い、体重・体脂肪率ともに少しずつ変化。ストレッチや食事のアドバイスもしてくださるので、厳しさよりもやる気が勝ちます。」</p>
+      </div>
+      <div class="voice">
+        <div class="voice-top"><span>30代・パーソナル初体験</span><span class="badge">体験後入会</span></div>
+        <div class="voice-lead">体験だけのつもりが、その場で入会しました。</div>
+        <p>「初めてのパーソナルでとても不安でしたが、丁寧に教えてくださり、自分だけでは気づかない点がたくさんありました。トレーナーさんもスタッフも本当に親切です。」</p>
+      </div>
+      <div class="voice">
+        <div class="voice-top"><span>産後・子育て世代</span><span class="badge">継続中</span></div>
+        <div class="voice-lead">産後の体型が気になり、通い始めました。</div>
+        <p>「トレーニング中や骨盤矯正中に、子どもを側に置いたり、スタッフの方が抱っこしてくださったり。安心してトレーニングできるのがとても嬉しいです。」</p>
+      </div>
+    </div>
+    <p class="fine">※効果には個人差があり、結果を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- 6. 料金の比較（月額15,400円の納得感） -->
+<section class="bg-white" data-track="s06_compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">COMPARISON</div>
+      <h2 class="h2">他の方法と<br class="sp">比べてみてください</h2>
+    </div>
+    <p class="scroll-hint">← 横にスクロールできます →</p>
+    <div class="table-scroll">
+      <table class="cmp">
+        <thead><tr><th scope="col">項目</th><th class="me">Make&amp;Space</th><th>大手パーソナル</th><th>24時間ジム</th><th>整体だけ</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">料金</th><td class="me">月額15,400円<br><small>分割・ローンなし</small></td><td>2ヶ月 20〜30万円<br><small>分割払いが多い</small></td><td>月7,000円前後</td><td>都度払い</td></tr>
+          <tr><th scope="row">体を整える</th><td class="me">◎ ストレッチ整体</td><td>△ 店舗による</td><td>× なし</td><td>◎</td></tr>
+          <tr><th scope="row">鍛える</th><td class="me">◎ マンツーマン</td><td>◎ マンツーマン</td><td>△ 自己流</td><td>× なし</td></tr>
+          <tr><th scope="row">食事サポート</th><td class="me">◎ 3食食べる指導</td><td>△ 糖質制限中心</td><td>× なし</td><td>× なし</td></tr>
+          <tr><th scope="row">環境</th><td class="me">◎ 完全個室</td><td>○ 個室</td><td>× 人目が気になる</td><td>○</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 7. LINE予約の流れ -->
+<section id="flow" class="bg-base" data-track="s07_flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">HOW TO BOOK</div>
+      <h2 class="h2">ご予約はLINEで<br class="sp">かんたん3ステップ</h2>
+    </div>
+    <div class="line-card">
+      <ol class="line-steps">
+        <li><b>1</b><span>下のボタンから <strong>Make&amp;Space</strong> を友だち追加</span></li>
+        <li><b>2</b><span>「体験希望」と、ご希望の日時・お名前を送信<br><small>話を聞くだけ（無料カウンセリング）なら「相談希望」でOK</small></span></li>
+        <li><b>3</b><span>トレーナーから空き状況をご返信。日時が決まれば予約完了です</span></li>
+      </ol>
+      <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" class="btn btn-line"><small>24時間受付・入会強制なし</small><strong>LINEで体験を予約する</strong></a>
+      <p class="tel-line">お電話でも受付中（9:00〜21:00）<br><a href="tel:0952322135">0952-32-2135</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. よくある質問 -->
+<section id="faq" class="bg-white" data-track="s08_faq">
+  <div class="wrap faq-wrap">
+    <div class="sec-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="h2">よくあるご質問</h2>
+    </div>
+    <div class="faq" id="faqList">
+      <div class="qa"><button type="button" aria-expanded="true" aria-controls="fa1"><span class="q">Q</span><span class="t">運動が苦手で、体もかたいです。大丈夫ですか？</span><span class="mk" aria-hidden="true">−</span></button>
+        <div class="a" id="fa1"><b>A</b><span>はい、大丈夫です。お越しになる方の多くが運動経験ゼロからのスタートです。ストレッチ整体で体をほぐしてから、基礎の姿勢・呼吸から無理のないステップで進めます。</span></div></div>
+      <div class="qa"><button type="button" aria-expanded="false" aria-controls="fa2"><span class="q">Q</span><span class="t">体験後に入会を強制されますか？</span><span class="mk" aria-hidden="true">＋</span></button>
+        <div class="a" id="fa2" hidden><b>A</b><span>いいえ、絶対にありません。体験当日のご入会は必須ではなく、お断りいただいても構いません。まずは「自分に合うかどうか」をゆっくり確認してください。</span></div></div>
+      <div class="qa"><button type="button" aria-expanded="false" aria-controls="fa3"><span class="q">Q</span><span class="t">月額15,400円のほかに、かかる費用はありますか？</span><span class="mk" aria-hidden="true">＋</span></button>
+        <div class="a" id="fa3" hidden><b>A</b><span>ご入会時に入会金10,000円がかかります。分割払い・ローン・高額コースはありません。表示価格はすべて税込です。</span></div></div>
+      <div class="qa"><button type="button" aria-expanded="false" aria-controls="fa4"><span class="q">Q</span><span class="t">何歳くらいの方が通っていますか？</span><span class="mk" aria-hidden="true">＋</span></button>
+        <div class="a" id="fa4" hidden><b>A</b><span>30代から50代の女性が中心ですが、20代後半から60代の方までいらっしゃいます。年代に合わせたアプローチを設計しますので、年齢を理由に諦める必要はありません。</span></div></div>
+      <div class="qa"><button type="button" aria-expanded="false" aria-controls="fa5"><span class="q">Q</span><span class="t">食事はどのくらい制限されますか？</span><span class="mk" aria-hidden="true">＋</span></button>
+        <div class="a" id="fa5" hidden><b>A</b><span>厳しい食事制限は行いません。1日3食をきちんと食べることを大切にし、栄養バランスを「整える」ことを重視しています。</span></div></div>
+      <div class="qa"><button type="button" aria-expanded="false" aria-controls="fa6"><span class="q">Q</span><span class="t">何ヶ月くらい通えば変化を感じますか？</span><span class="mk" aria-hidden="true">＋</span></button>
+        <div class="a" id="fa6" hidden><b>A</b><span>個人差はありますが、3ヶ月程度から体型や体調の変化を感じられる方が多いです。無理のないペースをおすすめしています。※効果には個人差があります。</span></div></div>
+      <div class="qa"><button type="button" aria-expanded="false" aria-controls="fa7"><span class="q">Q</span><span class="t">駐車場はありますか？</span><span class="mk" aria-hidden="true">＋</span></button>
+        <div class="a" id="fa7" hidden><b>A</b><span>専用駐車場をご用意しています。お車でのご来店も可能です。JR佐賀駅北口からは徒歩1分です。</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 店舗情報 -->
+<section id="shop" class="bg-base" data-track="s09_shop">
+  <div class="wrap shop">
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3336.0519873758685!2d130.29533857598747!3d33.26513127346352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541cb52718a625d%3A0x4353b4b97483d623!2z44OR44O844K944OK44Or44K444OgTWFrZSZTcGFjZQ!5e0!3m2!1sja!2sjp!4v1791809606916!5m2!1sja!2sjp" title="Make&amp;Space の地図" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="shop-body">
+      <div class="eyebrow">ACCESS</div>
+      <h2>パーソナルジム Make&amp;Space</h2>
+      <dl>
+        <dt>住所</dt><dd>〒840-0801 佐賀県佐賀市駅前中央2丁目1-1 北口ビル1F<br><small>JR佐賀駅北口より徒歩1分／専用駐車場あり</small></dd>
+        <dt>営業時間</dt><dd>9:00〜21:00</dd>
+        <dt>休業日</dt><dd>不定休（完全予約制）</dd>
+        <dt>電話</dt><dd><a href="tel:0952322135">0952-32-2135</a></dd>
+        <dt>設備</dt><dd>完全個室トレーニングルーム／TRXゾーン／シャワールーム</dd>
+      </dl>
+      <div class="gallery">
+        <figure><div class="photo"><img src="images/v3/exterior.jpg" alt="店舗の外観" width="500" height="500" loading="lazy"></div><figcaption>外観</figcaption></figure>
+        <figure><div class="photo"><img src="images/v3/private-room.jpg" alt="個室トレーニングルーム" width="500" height="500" loading="lazy"></div><figcaption>個室</figcaption></figure>
+        <figure><div class="photo"><img src="images/v3/shower.jpg" alt="シャワールーム" width="500" height="500" loading="lazy"></div><figcaption>シャワールーム</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 最後のひと押し -->
+<section id="final" class="final" data-track="s10_final">
+  <div class="wrap">
+    <h2 class="va">姿勢から、<br class="sp">好きな自分へ。</h2>
+    <h2 class="vb">運動が苦手でも、<br class="sp">大丈夫。</h2>
+    <p>ストレッチ整体つき体験トレーニング 3,300円（税込）<br>入会は体験のあとでゆっくり決めてOK</p>
+    <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" class="btn btn-line"><small>24時間受付・空き状況の確認だけでもOK</small><strong>LINEで体験を予約する</strong></a>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="ft-in">
+    <div>Make &amp; Space</div>
+    <address>〒840-0801 佐賀県佐賀市駅前中央2丁目1-1 北口ビル1F ／ TEL 0952-32-2135</address>
+    <div>© Make&amp;Space All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div class="sticky">
+  <div class="sticky-in">
+    <a href="tel:0952322135" class="btn btn-tel"><strong>電話</strong></a>
+    <a href="https://line.me/ti/p/%40makespace" target="_blank" rel="noopener" class="btn btn-line"><small>体験3,300円・入会強制なし</small><strong>LINEで体験を予約</strong></a>
+  </div>
+</div>
+</div>
+
+<script>
+// FAQ：1つ開くと他は閉じる（最初の1問は開いた状態）
+(function(){
+  var list = document.getElementById('faqList');
+  list.addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if (!btn) return;
+    var willOpen = btn.getAttribute('aria-expanded') !== 'true';
+    list.querySelectorAll('button').forEach(function(b){
+      var open = willOpen && b === btn;
+      b.setAttribute('aria-expanded', open);
+      b.querySelector('.mk').textContent = open ? '−' : '＋';
+      document.getElementById(b.getAttribute('aria-controls')).hidden = !open;
+    });
+  });
+})();
+
+// どこまで読まれたか：各セクションが画面に入ったら1回だけ GA4 に送る（イベント名 lp_s01_hero など）
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var name = 'lp_' + en.target.getAttribute('data-track');
+      if (typeof gtag === 'function') gtag('event', name, { lp_version: 'v4', lp_variant: document.documentElement.getAttribute('data-v') });
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('[data-track]').forEach(function(s){ io.observe(s); });
+})();
+
+// コンバージョン計測：LINE / 電話（v3.html と同じ仕組み＋Meta ピクセル）
+(function(){
+  var LABEL = { line: 'AW-605094393/ImeQCKqZk7EcEPmDxKAC', tel: '' }; // tel は管理画面で新規アクションを作成した後にラベルを入れる。空の間は送信しない
+  function loc(a){
+    if (a.closest('.sticky')) return 'sticky_cta';
+    if (a.closest('header')) return 'header';
+    if (a.closest('footer')) return 'footer';
+    var s = a.closest('section');
+    return (s && s.id) ? s.id : 'other';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target; if (!t || !t.closest) return;
+    var a = t.closest('a[href*="line.me"],a[href^="tel:"]'); if (!a) return;
+    var kind = a.getAttribute('href').indexOf('tel:') === 0 ? 'tel' : 'line';
+    var where = loc(a);
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { method: kind, cta_location: where });
+      gtag('event', 'lp_click_' + kind + '_' + where);
+      var key = 'cv_sent_' + kind, sent = false;
+      try { sent = sessionStorage.getItem(key) === '1'; sessionStorage.setItem(key, '1'); } catch(_) {}
+      if (!sent && LABEL[kind]) gtag('event', 'conversion', { send_to: LABEL[kind] });
+    }
+    if (typeof fbq === 'function') {
+      fbq('track', kind === 'line' ? 'Contact' : 'Lead', { content_name: where });
+    }
+  }, true);
+})();
+</script>
+</body>
+</html>
